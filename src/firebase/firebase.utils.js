@@ -2,7 +2,7 @@ import firebase from 'firebase/app'; //pulling from firebase library
 import 'firebase/firestore'; // for database 
 import 'firebase/auth'; //for Authenticaton
 
-const configFirebase =  {
+const config =  {
     apiKey: "AIzaSyBX1lCctbd9OsBOPMXExGMSvz4Ozl2EzBc",
     authDomain: "aa-db-c0f13.firebaseapp.com",
     databaseURL: "https://aa-db-c0f13.firebaseio.com",
@@ -12,6 +12,8 @@ const configFirebase =  {
     appId: "1:592378252197:web:1cd98ad91f56156e27764c",
     measurementId: "G-X7F5MW7V6Q"
   };
+
+  firebase.initializeApp(config);
 
   export const createUserProfileDocument = async (userAuth, additionalData) => {
     if(!userAuth) return;
@@ -38,8 +40,6 @@ const configFirebase =  {
     return userRef;
     
   }
-
-  firebase.initializeApp(configFirebase);
 
   export const auth = firebase.auth(); //pulled from firebase auth so we can use anytime we need by calling auth variable 
   export const firestore = firebase.firestore(); //pulled from firebase to store data 
